@@ -5,8 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def r_home():
     users = User.get_all()
-    print(users)
-    return render_template('read.html')
+    return render_template('read.html', users = users)
 
 
 if __name__ == '__main__':
