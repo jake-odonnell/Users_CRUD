@@ -12,11 +12,14 @@ class User:
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
-
         results = connectToMySQL('users').query_db(query)
-
         users = []
-
         for user in results:
             users.append(cls(user))
         return users
+
+    @classmethod
+    def add_user(cls, data):
+        query = "INSERT INTO users (first_name, last_name, email) VALUES(%(fn)s, %(ln)s, %(email)s);"
+        connectToMySQL('users').query_db(query,data)
+        return
