@@ -12,22 +12,22 @@
         <thead class = "">
             <tr>
                 <th class = "border border-success">ID</th>
-                <th class = "border border-success">First Name</th>
-                <th class = "border border-success">Last Name</th>
+                <th class = "border border-success">Full Name</th>
                 <th class = "border border-success">Email</th>
                 <th class = "border border-success">Created At</th>
                 <th class = "border border-success">Updated At</th>
+                <th class = "border border-success">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for user in users %}
                 <tr>
                     <td class = "border border-success">{{user.id}}</td>
-                    <td class = "border border-success">{{user.f_name}}</td>
-                    <td class = "border border-success">{{user.l_name}}</td>
+                    <td class = "border border-success">{{user.f_name}} {{user.l_name}}</td>
                     <td class = "border border-success">{{user.email}}</td>
                     <td class = "border border-success">{{user.created_at}}</td>
                     <td class = "border border-success">{{user.updated_at}}</td>
+                    <td class = "border border-success"><a href="/show/{{user.id}}">Show</a> | <a href="/update/{{user.id}}">Edit</a> | <a href="delete/{{user.id}}">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>

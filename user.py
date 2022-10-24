@@ -23,3 +23,15 @@ class User:
         query = "INSERT INTO users (first_name, last_name, email) VALUES(%(fn)s, %(ln)s, %(email)s);"
         connectToMySQL('users').query_db(query,data)
         return
+
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE users SET first_name = %(fn)s, last_name = %(ln)s, email = %(email)s WHERE id = %(id)s;"
+        connectToMySQL('users').query_db(query,data)
+        return
+
+    @classmethod
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        connectToMySQL('users').query_db(query,data)
+        return
