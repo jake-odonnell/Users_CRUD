@@ -10,17 +10,24 @@
 <body class="container text-center p-3">
     <form action="/add" class = "col-4 m-auto bg-info shadow rounded" method="post">
         <h1 class="font-weight-bold">User Information</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {%for message in messages%}
+                    <p class="text-warning">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <div>
             <label for="f_name" class="col-5 font-weight-bold">First Name:</label>
-            <input type="text" name="f_name" class="col-6">
+            <input type="text" name="f_name" class="col-6" value="{{data['fn']}}">
         </div>
         <div>
             <label for="l_name" class="col-5 fw-bold font-weight-bold">Last Name:</label>
-            <input type="text" name="l_name" class="col-6">
+            <input type="text" name="l_name" class="col-6" value="{{data['ln']}}">
         </div>
         <div>
             <label for="email" class="col-5 fw-bold font-weight-bold">Email:</label>
-            <input type="email" name="email" class="col-6">
+            <input type="email" name="email" class="col-6" value="{{data['email']}}">
         </div>
         <button type="submit" class="btn-submit mb-3">Submit</button>
     </form>
